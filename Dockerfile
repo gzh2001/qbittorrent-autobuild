@@ -2,8 +2,8 @@ FROM ubuntu:22.04
 
 WORKDIR /app
 
-RUN apt update && apt upgrade \
-    && apt install libboost-dev \
+RUN apt update -y && apt upgrade -y \
+    && apt install -y libboost-dev \
     libboost-system-dev \
     build-essential \
     libboost-chrono-dev \
