@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+ENV TZ Asia/Shanghai
+
 WORKDIR /app
 
 RUN apt update -y && apt upgrade -y \
