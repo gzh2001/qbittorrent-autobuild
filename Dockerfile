@@ -21,7 +21,7 @@ RUN apt update && apt upgrade \
     geoip-database
 
 ADD https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_14/libtorrent-rasterbar-1.1.14.tar.gz ./release/libtorrent-rasterbar-1.1.14.tar.gz
-COPY https://sourceforge.net/projects/qbittorrent/files/qbittorrent/qbittorrent-4.1.9.1/qbittorrent-4.1.9.1.tar.gz/download ./release/qbittorrent-4.1.9.1.tar.gz
+ADD https://sourceforge.net/projects/qbittorrent/files/qbittorrent/qbittorrent-4.1.9.1/qbittorrent-4.1.9.1.tar.gz/download ./release/qbittorrent-4.1.9.1.tar.gz
 
 RUN tar -zxf ./release/libtorrent-rasterbar-1.1.14.tar.gz -C . \
     && tar -zxf ./release/qbittorrent-4.1.9.1.tar.gz -C .
