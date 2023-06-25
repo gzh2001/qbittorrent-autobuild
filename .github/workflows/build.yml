@@ -11,6 +11,7 @@ env:
   APP_NAME: qbittorrent
   APP_VERSION: 4.1.9.1
   DOCKERHUB_REPO: tcol123/qbittorrent
+  TZ: Asia/Shanghai
   
 jobs:
   main:
