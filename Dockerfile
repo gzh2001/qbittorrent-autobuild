@@ -4,6 +4,8 @@ ENV TZ Asia/Shanghai
 
 WORKDIR /app
 
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt update -y && apt upgrade -y \
     && apt install -y libboost-dev \
     libboost-system-dev \
@@ -29,12 +31,14 @@ RUN tar -zxf ./release/libtorrent-rasterbar-1.1.14.tar.gz -C . \
     && tar -zxf ./release/qbittorrent-4.1.9.1.tar.gz -C .
 
 # 编译libtorrent-rasterbar-1.1.14
-RUN cd libtorrent-rasterbar-1.1.14 \
+RUN tar -zxf ./release/libtorrent-rasterbar-1.1.14.tar.gz -C . \
+    && cd /app/libtorrent-rasterbar-1.1.14 \
     && ./configure --disable-debug --enable-encryption --with-libgeoip=system CXXFLAGS=-std=c++11 \
     && make && make install \
     && ldconfig
 
-RUN cd qbittorrent-4.1.9.1 \
+RUN tar -zxf ./release/qbittorrent-4.1.9.1.tar.gz -C . \
+    && cd /app/qbittorrent-4.1.9.1 \
     && ./configure --prefix=/usr --disable-gui CXXFLAGS=-std=c++11  \
     && make && make install \
     && ldconfig
