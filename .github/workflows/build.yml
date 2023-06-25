@@ -23,8 +23,9 @@ jobs:
       # 下载源代码
       - name: Download codes
         run: |
-          wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_14/libtorrent-rasterbar-1.1.14.tar.gz
-          wget -O qbittorrent-4.1.9.1.tar.gz https://sourceforge.net/projects/qbittorrent/files/qbittorrent/qbittorrent-4.1.9.1/qbittorrent-4.1.9.1.tar.gz/download
+          cd qbittorrent-autobuild \
+          && wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_14/libtorrent-rasterbar-1.1.14.tar.gz \
+          && wget -O qbittorrent-4.1.9.1.tar.gz https://sourceforge.net/projects/qbittorrent/files/qbittorrent/qbittorrent-4.1.9.1/qbittorrent-4.1.9.1.tar.gz/download
       # 设置 QEMU, 后面 docker buildx 依赖此.
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
